@@ -66,11 +66,9 @@ async function submitLog(event)
 }
 
 async function logOut(){
-    const userID = -1;
     const response = await fetch("/logout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userID)
+        headers: { "Content-Type": "application/json" }
         });
 
     const data = await response.json();

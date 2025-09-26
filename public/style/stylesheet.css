@@ -22,7 +22,8 @@ body
 
 .navBar label
 { 
-    padding-left: 10px;
+    
+    padding-left: 20px;
     color: #000000;
     font-size: 45px;
 }
@@ -80,6 +81,11 @@ body
     font-size: 20px;
     color: #b4befe;
     font-style: normal;
+}
+
+.myTbx
+{
+    color:#000000;
 }
 
 .buttons
