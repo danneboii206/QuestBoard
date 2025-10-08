@@ -14,18 +14,49 @@
 <body>
     <!-- Everything else. New headers, paragraphs, divs, images, etc. Also scripts for functionality -->
     <nav class="navBar">
-    <label>QuestBoard</label>
+        <label>QuestBoard</label>
         <ul>
-            <% if(userID > 0) { %>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/shop">Shop</a></li>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/logout">logout<a></li>
+            <% if(userID != -1) { %>
+                <li id="myLi"><a href="/home">Home</a></li>
+                <li id="myLi"><a href="/dashboard">Dashboard</a></li>
+                <li id="myLi"><a href="/shop">Shop</a></li>
+                <li id="myLi"><a href="/profile">Profile</a></li>
+                <li id="myLi"><a onclick="logOut();">Log out<a></li>
             <% } else { %>
                 <li id="myLi"><a href="/login">Login / register</a></li>
             <% } %>
         </ul>
     </nav>
+    <% if(userID != -1) { %>
+        <div class="tasksUI">
+        <button type="button" class="myBtn" onclick="showForm();">Create task</button>
+        <form id="newTaskForm" onsubmit="createTask();">
+            <h1>Create task</h1>
+            <label>Title: 
+                <input type="text" id="title" required>
+            </label>
+            <label>Description: 
+                <textarea id="desc" required></textarea>
+            </label>
+            <label>Type:
+                <select id="type" required>
+                    <option selected disabled>Select type</option>
+                    <option>Daily</option>
+                    <option>Weekly</option>
+                    <option>One-Time</option>
+                </select>
+            </label>
+            <label>Due date & time:
+                <input type="time" id="dueDate">
+            </label>
+            <button type="button" class="myBtn" onclick="createTask();">Create task</button>
+            <button type="button" class="myBtn" onclick="hideForm();">Cancel</button>
+        </form>
+        </div>
+        <ul id="taskList"></ul>
+    <% } else { %>
+    <% } %>
+    <script src="/js/formScripts.js"></script>
+    <script src="/js/taskScripts.js"></script>
 </body>
 </html>

@@ -1,10 +1,3 @@
-.caveat-brush-regular
-{
-  font-family: "Caveat Brush", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
 body
 {
     background-color: #1e1e2e;
@@ -12,6 +5,8 @@ body
 
 .navBar
 {
+    display: flex;
+    align-items: center;
     background: #0082e6;
     height: 80px;
     width: 100%;
@@ -22,7 +17,6 @@ body
 
 .navBar label
 { 
-    
     padding-left: 20px;
     color: #000000;
     font-size: 45px;
@@ -30,9 +24,16 @@ body
 
 .navBar ul
 {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin-left: auto;
+    padding: 0;
+}
+
+.navBar a:hover
+{
+    color: rgb(92, 70, 128);
 }
 
 .navBar a
@@ -40,8 +41,6 @@ body
     color: white;
     text-decoration: none;
     padding: 0px;
-    display: block;
-    text-align: right;
 }
 
 .myBtn
@@ -62,8 +61,8 @@ body
 .logForm *
 {
     display: flex;
-    margin: 0 auto;
     justify-content: center;
+    margin: 0 auto;
     font-family: "Caveat Brush", cursive;
     font-weight: 400;
     font-size: 20px;
@@ -74,8 +73,8 @@ body
 .regForm *
 {
     display: flex;
-    margin: 0 auto;
     justify-content: center;
+    margin: 0 auto;
     font-family: "Caveat Brush", cursive;
     font-weight: 400;
     font-size: 20px;
@@ -90,31 +89,104 @@ body
 
 .buttons
 {
-    width:150px;
+    width: 150px;
     display: flex;
     gap: 25px;
     justify-content: center;
-    margin-top:10px;
-}
+    margin-top: 10px;
+} 
 
 #regLabel
 {
-    font-size:30px;
+    font-size: 30px;
     padding-top: 150px;
     padding-bottom: 50px;
 }
 
 #logLabel
 {
-    font-size:30px;
+    font-size: 30px;
     padding-top: 150px;
     padding-bottom: 50px;
 }
 
 #myLi
 {
-    font-size:30px;
-    justify-content: center;
-    margin-top: -35px;
-    margin-right: 25px;
+    font-size: 30px;
+}
+
+#newTaskForm 
+{
+    display: none;
+}
+
+#taskList
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/*
+https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow
+*/
+
+#taskList li {
+    background-color: #181825;
+    border: 1px solid #45475a;
+    border-radius: 12px;
+    padding: 16px;
+    width: 250px;
+    box-shadow: 0 2px 8px #00000066;
+}
+
+#taskList li label {
+    font-weight: bold;
+    font-size: 23px;
+    display: blocK;
+    padding-bottom: 8px;
+    color: #b4befe;
+}
+
+#taskList li p {
+    margin: 4px 0;
+    color: #a6adc8;
+}
+
+.tasksUI {
+    background-color: #181825;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px #00000066;
+    padding: 30px 35px;
+    width: 60%;
+}
+
+#newTaskForm h1 {
+    text-align: center;
+    color: #b4befe;
+    margin-bottom: 20px;
+}
+
+#newTaskForm label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600px;
+    color: #a6adc8;
+}
+
+#newTaskForm input,
+#newTaskForm textarea,
+#newTaskForm select {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+    background-color: #313244;
+    color: #cdd6f4;
+    font-size: 14px;
+    box-sizing: border-box;
 }

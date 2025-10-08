@@ -22,12 +22,11 @@ async function createAccount(email, user_name, password) {
 
     try 
     {
-        const res = await db.query(dbQuestion, [email, user_name, password]);
+        await db.query(dbQuestion, [email, user_name, password]);
     } catch (err) {
         if (err.code === "ER_DUP_ENTRY") {
-            throw new Error("DUPLICATE_EMAIL");
+            throw new Error("DUPLICATE_ACC");
         }
-        throw err;
     }
 
     db.end();

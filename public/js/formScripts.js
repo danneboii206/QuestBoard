@@ -10,24 +10,19 @@ async function submitReg(event)
     const response = await fetch("/register", 
             {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, user_name, password })
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({email, user_name, password})
             }
         );
 
     const data = await response.json();
-
-    if(!response.ok){
-        alert(data.message);
-        return;
-    }
-
     alert(data.message);
 
-} catch(err) {
+    window.location.href = "/login";
+    } catch(err) {
     console.error("Request Failed", err);
     alert("Something went wrong, try again");
-}
+    }
 
 }
 
@@ -43,18 +38,12 @@ async function submitLog(event)
     const response = await fetch("/login", 
             {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ user_name, password })
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({user_name, password})
             }
         )
 
     const data = await response.json();
-
-    if(!response.ok)
-    {
-        alert(data.message);
-        return;
-    }
 
     alert(data.message);
     } catch(err) 
@@ -63,13 +52,12 @@ async function submitLog(event)
         alert("Something went wrong, try again");
     }
 
+    window.location.href = "/";
 }
 
-async function logOut(){
-    const response = await fetch("/logout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" }
-        });
+async function logOut()
+{
+    const response = await fetch("/logout", {method: "POST"});
 
     const data = await response.json();
 
@@ -79,11 +67,6 @@ async function logOut(){
     }
 
     alert(data.message);
-}
 
-module.exports = 
-{
-    "submitReg" : submitReg,
-    "submitLog" : submitLog,
-    "logOut" : logOut
+    window.location.href = "/";
 }

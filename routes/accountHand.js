@@ -25,8 +25,6 @@ router.post("/register", async (req, res) => {
     const user_name = req.body.user_name;
     const password = req.body.password;
 
-    console.log(email, user_name, password);
-
     if (!email || !user_name || !password)
     {
         return res.status(400).json({ message: "All fields required." });
@@ -39,7 +37,7 @@ router.post("/register", async (req, res) => {
         
     } catch (err)
     {
-        if(err.message === "DUPLICATE_EMAIL") {
+        if(err.message === "DUPLICATE_ACC") {
             return res.status(400).json({ message: "Duplicate account" })
         }
     }
