@@ -70,7 +70,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
-router.post("/logout", (req, res) => {
+router.post("/logout", (res) => {
     res.cookie("userID", -1);
     res.status(200).json({ message: "Logged out" });
 });
